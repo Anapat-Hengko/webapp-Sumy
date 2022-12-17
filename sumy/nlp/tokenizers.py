@@ -56,6 +56,14 @@ class ChineseWordTokenizer:
             raise ValueError("Chinese tokenizer requires jieba. Please, install it by command 'pip install jieba'.")
         return jieba.cut(text)
 
+class ThaiWordTokenizer:
+    def tokenize(self, text):
+        try:
+            import pythainlp
+        except ImportError as e:
+            raise ValueError("Chinese tokenizer requires jieba. Please, install it by command 'pip install jieba'.")
+        return pythainlp.sent_tokenize(text)
+
 
 class KoreanSentencesTokenizer:
     def tokenize(self, text):
